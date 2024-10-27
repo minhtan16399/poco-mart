@@ -1,9 +1,9 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import {FacebookIcon} from "../../shared/icon/facebook-icon";
-import {TwitterIcon} from "../../shared/icon/twitter-icon";
-import {GoogleIcon} from "../../shared/icon/google-icon";
-import {YoutubeIcon} from "../../shared/icon/youtube-icon";
+import {FacebookIcon} from "../../shared/icon/social-media/facebook-icon";
+import {TwitterIcon} from "../../shared/icon/social-media/twitter-icon";
+import {GoogleIcon} from "../../shared/icon/social-media/google-icon";
+import {YoutubeIcon} from "../../shared/icon/social-media/youtube-icon";
 
 const locationData = [
     {
@@ -156,8 +156,8 @@ const Footer: React.FC = () => {
                                 <div>
                                     <ul>
                                         {items.details.map(detail => (
-                                            <li key={detail.key} className={'text-[#8b8e96] leading-6 hover:text-[#ffb416]'}>
-                                                <NavLink to={`/`}>
+                                            <li key={detail.key} >
+                                                <NavLink to={`/`} className={'text-[#8b8e96] leading-6 hover:text-[#ffb416]'}>
                                                     {detail.name}
                                                 </NavLink>
                                             </li>
@@ -194,7 +194,7 @@ const Footer: React.FC = () => {
                                     </button>
                                 </form>
                             </div>
-                            <div className={'flex gap-5'}>
+                            <div className={'flex gap-2'}>
                                 <NavLink to={'/'} className={'social-button relative before:bg-[#3B5998] overflow-hidden bg-white size-10 flex justify-center items-center'}>
                                     <div className={'w-2.5 text-[#3B5998]'}>
                                         <FacebookIcon/>

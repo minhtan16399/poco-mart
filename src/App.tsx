@@ -6,12 +6,14 @@ import Home from "./pages/home";
 import DetailProduct from "./pages/detail-product";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import Navbar from "./components/navbar";
 
 function App() {
   return (
     <Provider store={store}>
         <Router>
             <Header />
+            <Navbar/>
             <Routes>
                 <Route path={'/'} element={<Home />} />
                 <Route path={'/detail-product'} element={<DetailProduct />} />
