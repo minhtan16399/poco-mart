@@ -1,9 +1,12 @@
 import React, {useState} from "react";
 import {MultiImagePreview} from "../../multi-image-preview";
 import {TabContent} from "../tab-content";
-import {ListProductsType} from "../../../shared/types/list-products-type";
+import {CartItem, ListProductsType} from "../../../shared/types/list-products-type";
 import {formatPrice} from "../../../shared/helper/function";
 import {DetailProductContent} from "../content";
+import {useDispatch} from "react-redux";
+import {addCartAction} from "../../../redux/Reducers/cart-reducer";
+import {notification} from "antd";
 
 const tabTest = [
     {
@@ -28,34 +31,50 @@ type ShowDetailProductProps = {
 };
 
 export const ShowDetailProduct = ({product}:ShowDetailProductProps) => {
-    const [selectedVersion, setSelectedVersion] = useState<string>(product.price[0].version);
-    const [selectedColor, setSelectedColor] = useState<number>(0);
-    const [count, setCount] = useState<number>(1);
+    const [state, setState] = useState({
+        count: 1,
+        color: product.image[0].name,
+        version: product.price[0].version,
+        price: product.price[0].price,
+        oldPrice: product.price[0].oldPrice,
+        image: product.image[0].url,
+    });
+
+    const dispatch = useDispatch();
+    const [api, contextHolder] = notification.useNotification();
+
+    const addCartSuccessNotification = () => {
+        api['success']({
+            duration: 1.5,
+            message: 'Thêm vào giỏ hàng thành công',
+        });
+    };
+
+    const productItem: CartItem = {
+        id: product.id,
+        name: product.name,
+        price: state.price,
+        amount: state.count,
+        color: state.color,
+        version: state.version,
+        image: state.image
+    };
 
     const setCountHandler = (method:'minus' | 'plus') => {
         if (method === 'minus') {
-            if (count === 1) {
+            if (state.count === 1) {
                 return;
             }
-            return setCount(count - 1);
+            return setState(prev => ({...prev, count: state.count - 1}));
         }
         if (method === 'plus') {
-            return setCount(count + 1);
+            return setState(prev => ({...prev, count: state.count + 1}));
         }
-    };
-    const getPriceByVersion = (version:string) => {
-        const versionDetail = product.price.find((item)=> item.version === version);
-        return (
-            <div className={'flex items-center gap-5'}>
-                <span className={'font-bold text-2xl text-red-600'}>{formatPrice(versionDetail?.price??0)}</span>
-                {versionDetail?.oldPrice ? <span>Giá niêm yết: <span
-                    className={'text-neutral-600 line-through'}>{formatPrice(versionDetail.oldPrice)}</span></span> : ''}
-            </div>
-        )
     };
 
     return (
         <div className={'flex flex-col gap-5'}>
+            {contextHolder}
             <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-5'}>
                 <div className={'pt-5 col-span-1 md:col-span-1 lg:col-span-1'}>
                     <div className={'w-full h-auto text-nowrap overflow-hidden'}>
@@ -71,27 +90,34 @@ export const ShowDetailProduct = ({product}:ShowDetailProductProps) => {
                                     <span>Thương hiệu: <span className={'font-medium'}>apple</span></span>
                                     <span>Mã sản phẩm: <span className={'font-medium'}>{product.id}</span></span>
                                 </div>
-                                {getPriceByVersion(selectedVersion)}
+                                <div className={'flex items-center gap-5'}>
+                                    <span
+                                        className={'font-bold text-2xl text-red-600'}>{formatPrice(state.price)}</span>
+                                    {state.oldPrice ? <span>Giá niêm yết: <span
+                                        className={'text-neutral-600 line-through'}>{formatPrice(state.oldPrice)}</span></span> : ''}
+                                </div>
                             </div>
                             <div className={'flex flex-col gap-2'}>
-                                <span>Bộ nhớ: <span className={'text-red-600 font-bold'}>{selectedVersion}</span></span>
+                                <span>Bộ nhớ: <span className={'text-red-600 font-bold'}>{state.version}</span></span>
                                 <div className={'flex items-center gap-1'}>
                                     {product.price.map((item, index) => (
                                         <button
-                                            className={selectedVersion === item.version ? 'border border-red-600 rounded-md p-2' : 'border border-neutral-300 hover:border-red-600 rounded-md p-2'}
-                                            onClick={() => setSelectedVersion(item.version)}>
+                                            key={index}
+                                            className={state.version === item.version ? 'border border-red-600 rounded-md p-2' : 'border border-neutral-300 hover:border-red-600 rounded-md p-2'}
+                                            onClick={() => setState(prev => ({...prev, version: item.version, price: item.price, oldPrice: item.oldPrice}))}>
                                             {item.version}
                                         </button>
                                     ))}
                                 </div>
                             </div>
                             <div className={'flex flex-col gap-2'}>
-                                <span>Màu sắc: <span className={'text-red-600 font-bold'}>Xanh</span></span>
+                                <span>Màu sắc: <span className={'text-red-600 font-bold'}>{state.color}</span></span>
                                 <div className={'flex items-center gap-1'}>
                                     {product.image.map((item, index) => (
                                         <button
-                                            className={selectedColor === index ? 'w-10 border border-red-600 rounded-md p-1' : 'w-10 border border-neutral-300 hover:border-red-600 rounded-md p-1'}
-                                            onClick={() => setSelectedColor(index)}>
+                                            key={index}
+                                            className={state.color === item.name ? 'w-10 border border-red-600 rounded-md p-1' : 'w-10 border border-neutral-300 hover:border-red-600 rounded-md p-1'}
+                                            onClick={() => setState(prev=>({...prev, color: item.name, image: item.url}))}>
                                             <img src={item.url} alt={item.name}/>
                                         </button>
                                     ))}
@@ -104,7 +130,7 @@ export const ShowDetailProduct = ({product}:ShowDetailProductProps) => {
                                         onClick={() => setCountHandler('minus')}>-
                                     </button>
                                     <span
-                                        className={'border-x border-neutral-300 p-1 w-20 text-center text-2xl font-bold'}>{count}</span>
+                                        className={'border-x border-neutral-300 p-1 w-20 text-center text-2xl font-bold'}>{state.count}</span>
                                     <button
                                         className={'text-red-600 hover:bg-red-600 hover:text-white text-xl py-1.5 px-4'}
                                         onClick={() => setCountHandler('plus')}>+
@@ -114,6 +140,7 @@ export const ShowDetailProduct = ({product}:ShowDetailProductProps) => {
                             <div>
                                 <div className={'gap-2 lg:gap-5 grid grid-cols-1 lg:grid-cols-8'}>
                                     <button
+                                        onClick={()=>{dispatch(addCartAction(productItem)); addCartSuccessNotification()}}
                                         className={'text-nowrap col-span-1 lg:col-span-3 font-medium flex flex-col justify-center items-center border text-white bg-red-500 p-3 rounded-md hover:bg-white hover:text-red-600 border-red-500'}>
                                         <span className={'uppercase'}>Thêm vào giỏ</span><span>Cam kết chính hãng / đổi trả 24h</span>
                                     </button>

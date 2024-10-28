@@ -4,12 +4,14 @@ import {NavLink} from "react-router-dom";
 import {ArrowIcon} from "../../shared/icon/arow-icon";
 import {CartIcon} from "../../shared/icon/cart-icon";
 import {HeartIcon} from "../../shared/icon/heart-icon";
+import {Cart} from "../cart";
 
 const Logo = '/assets/image/logo/logo.png';
 const callIcon = '/assets/icon/call.png';
 const usersIcon = '/assets/icon/users.png';
 
 const Header: React.FC = () => {
+
     return (
         <header id={'header'} className={'py-4'}>
             <div className={'container mx-auto flex items-center justify-between gap-5 lg:gap-8 px-2 md:px-10 lg:px-0'}>
@@ -58,8 +60,8 @@ const Header: React.FC = () => {
                     <div className={'hidden lg:block size-6'}>
                         <HeartIcon/>
                     </div>
-                    <div className={'size-6'}>
-                        <CartIcon/>
+                    <div className={'relative'}>
+                        <Cart className={'size-6'} label={<CartIcon/>}/>
                     </div>
                     <div className={'hidden lg:block size-6'}>
                         <ArrowIcon/>

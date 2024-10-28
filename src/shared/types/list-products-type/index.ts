@@ -23,4 +23,14 @@ export type PriceProductType = {
     version: string;
     price: number;
     oldPrice: number;
+};
+
+export type CartItem = {
+    id: string;
+    name: string;
+    price: number;
+    amount: number;
+    version: string;
+    color: string;
+    image: string
 }
