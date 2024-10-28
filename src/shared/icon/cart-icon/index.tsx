@@ -1,6 +1,6 @@
 export const CartIcon = ()=> {
     return (
-        <svg enable-background="new 0 0 407.453 407.453" version="1.1" viewBox="0 0 407.45 407.45" xmlSpace="preserve"
+        <svg enableBackground="new 0 0 407.453 407.453" version="1.1" viewBox="0 0 407.45 407.45" xmlSpace="preserve"
              xmlns="http://www.w3.org/2000/svg"> <g fill="#010002"> <path
             d="m255.1 116.52c4.487 0 8.129-3.633 8.129-8.129 0-4.495-3.642-8.129-8.129-8.129h-111.61c-4.487 0-8.129 3.633-8.129 8.129 0 4.495 3.642 8.129 8.129 8.129h111.61z"></path>
             <path

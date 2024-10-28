@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "name": "Samsung Galaxy Note 21",
+    "description": [],
+    "price": [
+      {
+        "version": "128GB",
+        "price": 29000000,
+        "oldPrice": 30500000
+      }
+    ],
+    "discount": 5,
+    "url":"/",
+    "image":[
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/dien-thoai-samsung-galaxy-s21-ultra-5g-256g-g998b-bac-h0l175-b6ac0e17-afc8-42a9-bb4f-aecaf81ad7e2.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Apple iPhone 12 Mini New",
+    "description": "",
+    "price": [
+      {
+        "version": "128GB",
+        "price": 26000000,
+        "oldPrice": 0
+      },
+      {
+        "version": "256GB",
+        "price": 29900000,
+        "oldPrice": 31000000
+      },
+      {
+        "version": "512GB",
+        "price": 36000000,
+        "oldPrice": 0
+      }
+    ],
+    "discount": 0,
+    "url":"/",
+    "image":[
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/apple-iphone-12-mini-2-0340d148-dd79-40b3-b8ad-95ed589c7b5a.png"
+      },
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/iphone-12-pro-max-128gb-graphite-0194252021200-25102020-1-p-d8dc7b9e-000e-471a-bb66-86b53977adc4.png"
+      },
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/iphone-12-pro-max-va-ng-8182d2cc-ab3f-4752-ac55-caebfa754ec5.png"
+      },
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/iphone-12-pro-max-xanh-561e05b7-eed5-40c8-9065-49b5a1cea423.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "iPhone 12 Pro Max Like New",
+    "description": "",
+    "price": [
+      {
+        "version": "128GB",
+        "price": 22000000,
+        "oldPrice": 32000000
+      }
+    ],
+    "discount": 31,
+    "url":"/",
+    "image":[
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/iphone-12-pro-max-xanh-561e05b7-eed5-40c8-9065-49b5a1cea423.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "iPhone XR - Vàng Chính Hãng VN/A",
+    "description": "",
+    "price": [
+      {
+        "version": "128GB",
+        "price": 8000000,
+        "oldPrice": 10000000
+      }
+    ],
+    "discount": 20,
+    "url":"/",
+    "image":[
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/iphone-xr-mau-vang-didongviet-1-1-2.png"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Xiaomi Mi 10T Pro 5G",
+    "description": "",
+    "price": [
+      {
+        "version": "128GB",
+        "price": 10900000,
+        "oldPrice": 12500000
+      }
+    ],
+    "discount": 13,
+    "url":"/",
+    "image":[
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/xiaomi-mi-10t-pro.png"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "iPhone 12 Hàng Quốc Tế",
+    "description": "",
+    "price": [
+      {
+        "version": "128GB",
+        "price": 26000000,
+        "oldPrice": 32000000
+      }
+    ],
+    "discount": 19,
+    "url":"/",
+    "image":[
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/apple-iphone-12-mini-5.png"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Samsung Galaxy S21 Ultra",
+    "description": "",
+    "price": [
+      {
+        "version": "128GB",
+        "price": 25000000,
+        "oldPrice": 25500000
+      }
+    ],
+    "discount": 2,
+    "url":"/",
+    "image":[
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/galaxy-s21-ultra-5g-black-didongviet.png"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "iPhone 12 Pro Max Chính Hãng",
+    "description": "",
+    "price": [
+      {
+        "version": "128GB",
+        "price": 26000000,
+        "oldPrice": 32000000
+      }
+    ],
+    "discount": 19,
+    "url":"/",
+    "image":[
+      {
+        "name": "Xám",
+        "url": "/assets/image/tech/smart-phone/iphone-12-pro-max-ba-c.png"
+      }
+    ]
+  }
+]

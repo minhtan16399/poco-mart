@@ -1,70 +1,17 @@
 import {NavLink} from "react-router-dom";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {CardProduct} from "../../card-product";
+import {getApi} from "../../../shared/helper/function";
+import {ListProductsType} from "../../../shared/types/list-products-type";
 
-const dataProducts = [
-    {
-        id: 1,
-        name: 'Samsung Galaxy Note 21',
-        description: '',
-        price: 29900000,
-        oldPrice: 29900000,
-        discount: 99,
-        url:'/',
-        image:'/assets/image/tech/smart-phone/apple-iphone-12-mini-5.png'
-    },
-    {
-        id: 2,
-        name: 'bbb',
-        description: '',
-        price: 29900000,
-        oldPrice: 0,
-        discount: 0,
-        url:'/',
-        image:'/assets/image/tech/smart-phone/iphone-12-pro-max-ba-c.png'
-    },
-    {
-        id: 3,
-        name: 'iPhone XR - Vàng Chính Hãng VN/A',
-        description: '',
-        price: 99,
-        oldPrice: 29900000,
-        discount: 5,
-        url:'/',
-        image:'/assets/image/tech/smart-phone/xiaomi-mi-10t-pro.png'
-    },
-    {
-        id: 4,
-        name: 'ddd',
-        description: '',
-        price: 29900000,
-        oldPrice: 29900000,
-        discount: 13,
-        url:'/',
-        image:'/assets/image/tech/smart-phone/xiaomi-mi-10t-pro.png'
-    },
-    {
-        id: 5,
-        name: 'ddd',
-        description: '',
-        price: 99,
-        oldPrice: 29900000,
-        discount: 99,
-        url:'/',
-        image:'/assets/image/tech/smart-phone/xiaomi-mi-10t-pro.png'
-    },
-    {
-        id: 6,
-        name: 'iPhone XR - Vàng Chính Hãng VN/A',
-        description: '',
-        price: 29000000,
-        oldPrice: 29900000,
-        discount: 2,
-        url:'/',
-        image:'/assets/image/tech/smart-phone/xiaomi-mi-10t-pro.png'
-    }
-];
 export const ListProduct = () => {
+    const [data, setData] = useState<ListProductsType[]>([]);
+    useEffect(()=>{
+        getApi<ListProductsType[]>('/data/list-products.json')
+            .then(data => setData(data))
+            .catch(err => console.log(err));
+    },[]);
+
     return (
         <div className={''}>
             <div className={'flex justify-between items-center border-b-2 border-[#eb3e32]'}>
@@ -103,12 +50,12 @@ export const ListProduct = () => {
                         <img src={'/assets/image/banner/tech/banner_2.png'} alt={'tech banner 1'}/>
                     </div>
                 </div>
-                <div className={'grid grid-cols-4 gap-2.5'}>
-                    {dataProducts.map((item) => (
-                        <div key={item.id}>
-                            <CardProduct title={item.name} url={item.url} image={item.image} price={item.price} oldPrice={item.oldPrice} discount={item.discount} />
+                <div className={'grid grid-cols-4 gap-2.5 w-full relative'}>
+                    {data[0] ? data.map((item,index) => (
+                        <div key={index}>
+                            <CardProduct product={item} />
                         </div>
-                    ))}
+                    )) : <div className={'col-span-4 flex justify-center items-center'}>Hiện tại không có sản phẩm</div>}
                 </div>
             </div>
         </div>

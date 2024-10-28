@@ -1,7 +1,7 @@
 import React from "react";
 import SearchIcon from "../../shared/icon/search-icon";
 import {NavLink} from "react-router-dom";
-import {ArowIcon} from "../../shared/icon/arow-icon";
+import {ArrowIcon} from "../../shared/icon/arow-icon";
 import {CartIcon} from "../../shared/icon/cart-icon";
 import {HeartIcon} from "../../shared/icon/heart-icon";
 
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
                         <CartIcon/>
                     </div>
                     <div className={'size-6'}>
-                        <ArowIcon/>
+                        <ArrowIcon/>
                     </div>
                 </div>
             </div>
