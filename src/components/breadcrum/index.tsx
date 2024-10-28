@@ -2,7 +2,7 @@ import React from 'react';
 import {Breadcrumb, ConfigProvider} from 'antd';
 import {NavLink} from "react-router-dom";
 
-const Breadcrumbs: React.FC = () => (
+const Breadcrumbs = ({title}:{title:string}) => (
     <ConfigProvider theme={{
         components: {
             Breadcrumb: {
@@ -17,11 +17,8 @@ const Breadcrumbs: React.FC = () => (
                     title: <NavLink to={'/'}>Trang chủ</NavLink>,
                 },
                 {
-                    title: <NavLink to={'/'}>Tất cả sản phẩm</NavLink>,
-                },
-                {
-                    title: 'An Application',
-                },
+                    title: `${title}`,
+                }
             ]}
         />
     </ConfigProvider>

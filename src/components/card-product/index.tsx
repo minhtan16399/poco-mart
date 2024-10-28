@@ -29,7 +29,8 @@ export const CardProduct = ({product}:CardProductProps) => {
                              className={'text-base font-bold text-neutral-700 hover:text-yellow-600'}>{product.name}</NavLink>
                 </div>
                 <div className={'flex flex-col'}>
-                    <span className={'text-base text-red-600 font-bold'}>{formatPrice(product.price[0].price)}</span>
+                        <span
+                            className={'text-base text-red-600 font-bold'}>{formatPrice(product.price[0].price)}</span>
                     <span className={'text-neutral-400 line-through text-sm'}>{oldPriceText}</span>
                 </div>
             </div>
