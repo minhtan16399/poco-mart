@@ -147,9 +147,9 @@ const locationData = [
 const Footer: React.FC = () => {
     return (
         <footer id={'footer'} className={'bg-[#24272e] pt-12 pb-5'}>
-            <div className={'container mx-auto'}>
+            <div className={'container mx-auto px-2 md:px-10 lg:px-0'}>
                 <div id={'footer-top'}>
-                    <div className={'w-full grid grid-cols-4'}>
+                    <div className={'w-full grid lg:grid-cols-4 grid-cols-1 gap-5 lg:gap-0 md:grid-cols-2'}>
                         {locationData.map((items)=> (
                             <div key={items.key} className={'flex flex-col gap-6'}>
                                 <div className={'text-white font-bold uppercase'}>{items.name}</div>
@@ -170,7 +170,7 @@ const Footer: React.FC = () => {
                 </div>
                 <hr className={'my-8 border-[#373a43]'}/>
                 <div id={'footer-bot'}>
-                    <div className={'grid grid-cols-2'}>
+                    <div className={'grid grid-cols-1 gap-5 lg:gap-0 lg:grid-cols-2'}>
                         <div className={'flex flex-col gap-6'}>
                             <div className={'text-white font-bold uppercase'}>Thiên đường mua sắm Poco Mart</div>
                             <ul className={'text-[#8b8e96] leading-6'}>

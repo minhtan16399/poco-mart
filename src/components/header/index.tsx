@@ -12,12 +12,12 @@ const usersIcon = '/assets/icon/users.png';
 const Header: React.FC = () => {
     return (
         <header id={'header'} className={'py-4'}>
-            <div className={'container mx-auto flex items-center justify-between gap-8'}>
+            <div className={'container mx-auto flex items-center justify-between gap-5 lg:gap-8 px-2 md:px-10 lg:px-0'}>
                 <div id={'header-logo'}>
                     <img className={'max-h-11'} src={Logo} alt={'logo'} />
                 </div>
                 <div className={'w-1/2 flex items-center gap-5'}>
-                    <div id={'search-icon-tool'} className={'w-3/5 border border-red-600 rounded-lg overflow-hidden'}>
+                    <div id={'search-icon-tool'} className={'w-full lg:w-3/5 border border-red-600 rounded-lg overflow-hidden'}>
                         <form className={'flex justify-between items-center gap-1 py-2.5 px-3'}>
                             <input className={'bg-transparent outline-none w-full'} placeholder={'Tìm sản phẩm ...'}/>
                             <button className={'size-6'}>
@@ -25,8 +25,8 @@ const Header: React.FC = () => {
                             </button>
                         </form>
                     </div>
-                    <div className={'flex justify-center items-center gap-5 text-nowrap'}>
-                        <div id={'header-contact'} className={'flex items-center justify-center gap-3'}>
+                    <div className={'hidden md:flex justify-center items-center gap-5 text-nowrap'}>
+                        <div id={'header-contact'} className={'hidden lg:flex items-center justify-center gap-3'}>
                             <div className={'size-8'}>
                                 <img src={callIcon} alt={'call'}/>
                             </div>
@@ -55,13 +55,13 @@ const Header: React.FC = () => {
                     </div>
                 </div>
                 <div className={'flex items-center justify-center gap-5'}>
-                    <div className={'size-6'}>
+                    <div className={'hidden lg:block size-6'}>
                         <HeartIcon/>
                     </div>
                     <div className={'size-6'}>
                         <CartIcon/>
                     </div>
-                    <div className={'size-6'}>
+                    <div className={'hidden lg:block size-6'}>
                         <ArrowIcon/>
                     </div>
                 </div>

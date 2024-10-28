@@ -11,7 +11,7 @@ export const TabContent = ({items}: TabContentProps) => {
     const [activeButton, setActiveButton] = useState<number>(0);
 
     return (
-        <div className={'grid grid-cols-4'}>
+        <div className={'grid grid-cols-1 lg:grid-cols-4'}>
             <div className={'col-span-3'}>
                 <div>
                     {

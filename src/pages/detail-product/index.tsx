@@ -21,7 +21,7 @@ const DetailProduct: React.FC = () => {
 
     return (
         <div className={'pb-5'}>
-            <div className={'container mx-auto'}>
+            <div className={'container mx-auto px-2 md:px-10 lg:px-0'}>
                 <div className={'py-4'}>
                     <Breadcrumbs />
                 </div>
